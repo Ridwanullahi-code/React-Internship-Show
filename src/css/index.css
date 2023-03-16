@@ -8,6 +8,9 @@
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
+body{
+  background-color: blue;
+}
 
 .white {
   color: white;
@@ -18,8 +21,18 @@
 }
 
 .App1 {
-  background-color: black;
+  background-color:blue;
   color: white;
+}
+
+.navbar {
+  background-color: rgb(1, 1, 40);
+  padding:20px;
+}
+.navbar .home {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .row_posters {
@@ -33,17 +46,24 @@
 .poster {
   width: calc((var(--width) / 4) - 74px);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  background-color: rgb(2, 2, 114);
+  border-radius: 3px;
 }
 
 .poster img {
   width: 100%;
-  max-height: 340px;
+  max-height: 250px;
 }
 
 .title {
   position: absolute;
   padding: 5px;
-  inset: 0;
+  top:0; left:1px; right:1px; bottom: 54px;
   opacity: 0;
   background-color: rgba(17, 17, 17, 0.567);
 }
@@ -141,86 +161,79 @@
   }
 }
 
-/* Modal popup */
-
-/* <=============== navbar styling  =====================> */
-
-/* <========== top banner style ===========> */
-
-/* .banner {
+.summary-btn {
   color:white;
-  object-fit: contain;
-  height: 448px;
-}
-.banner_contents {
-  padding-top: 140px;
-  padding-left: 50px;
-  height: 190px;
-  margin-bottom: 140px;
-}
-.banner_title{
-  font-size: 3rem;
-  font-weight: 800;
-  padding-bottom: 0.3rem;
-}
-.banner_description{
-  width: 45rem;
-  line-height: 1.3;
-  padding-top: 1rem;
-  font-size: 0.8rem;
-  max-width:368px;
-  height: 80px;
-}
-.banner_button{
+  padding: 8px;
+  background-color: rgb(2, 2, 64);
+  text-align: center;
+  border: 1px solid rgb(2, 2, 64);
+  border-radius: 4px;
+  font-size: 18px;
   cursor: pointer;
-  outline: none;
-  color: white;
-  border:none;
-  font-weight: 700;
-  border-radius: 0.2vw;
-  padding:0.5rem 2rem;
-  margin-right: 1rem;
-  background-color: rgba(51, 51, 51, 0.5);
-}
-.banner_button:hover{
-  background-color: white;
-  color: black;
-  transition: all 0.2s ease;
-}
-.banner_fadeBottom {
-  height: 7.4rem;
-  background-image: linear-gradient(180deg,
-      transparent,
-      rgba(37, 37, 37, 0.6),
-      #111);
-}
-.movie_category{
-  font-size: 20px;
-  padding:10px;
-}
-.row_posters{
-  display: flex;
-  gap:0 10px;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  padding:2px 10px;
-}
-.row_posters::-webkit-scrollbar{
-  display: none;
 }
 
-.row_poster{
-  object-fit: contain;
+.summary-btn:hover{
+  background-color: rgb(0, 0, 32);
+}
+.summary-btn:active{
+  background-color: rgb(0, 0, 7);
+}
+
+.table-section {
   width: 100%;
-  max-height: 100px;
-  transition: transform 450ms;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
-.row_poster:hover{
-  transform: scale(1.08);
+.mission-table {
+  border-collapse: collapse;
+  width: 95%;
+  table-layout: fixed;
 }
-.row_posterLarge{
-  max-height: 250px;
+
+.mission-table th {
+  padding-top: 12px;
+  font-size: 14px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: white;
+  border: 1px solid #ddd;
 }
-.row_posterLarge:hover{
-  transform: scale(1.09);
-} */
+.mission-table .summary{
+  font-size: 16px;
+}
+.mission-table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  color:black;
+  font-size: 13px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.mission-table th:nth-child(2) {
+  width: 50%;
+}
+
+.mission-table tbody tr {
+  background-color: #fff !important;
+}
+
+.mission-table tbody tr:nth-child(even) {
+  background-color: #f2f2f288;
+}
+
+.mission-table tbody tr:hover {
+  background-color: rgba(221, 221, 221, 0.431);
+}
+
+.mission-button{
+  background-color: rgb(1, 1, 66);
+  border-radius: 5px;
+  padding: 8px 25px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}

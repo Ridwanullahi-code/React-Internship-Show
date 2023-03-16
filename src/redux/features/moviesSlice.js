@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import requests from '../../functions/requests';
 
 const state = {
   movies: [],
@@ -10,9 +9,9 @@ const state = {
 export const fetchMovies = createAsyncThunk(
   'fetch/movies',
   async () => {
-    const request = await axios.get(requests.movies);
-    const result = request.data.results;
-    return result;
+    const request = await axios.get('https://api.tvmaze.com/search/shows?q=all');
+    const show = request.data;
+    return show;
   },
 );
 
