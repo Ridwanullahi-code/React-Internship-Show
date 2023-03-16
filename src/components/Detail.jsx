@@ -8,8 +8,12 @@ const Detail = () => {
 	const { state } = useLocation();
 	const { show } = state;
 
-	const handleBook = () => {
-    navigate(`/register`);
+	const handleBook = (obj) => {
+    navigate(`/register`, {
+      state: {
+        name: obj,
+      },
+    });
   };
 
 	return (
@@ -32,7 +36,7 @@ const Detail = () => {
             <button
               className="mission-button"
 							type="button"
-							onClick={handleBook}
+							onClick={() => handleBook(show && show.name)}
             >
             Book
             </button>
