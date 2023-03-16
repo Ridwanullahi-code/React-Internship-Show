@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router';
 import store from '../functions/storage';
 
 function Register() {
   const [user, setUser] = useState({});
+  const [redirect, setRedirect] = useState(false)
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -12,14 +15,20 @@ function Register() {
       [e.target.name]: e.target.value,
     });
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     store(user);
+    setRedirect(!redirect)
+    setTimeout(() => {
+      navigate('/' , {replace: true});
+    }, 5000)
   };
 
   return (
     <section className="user_container">
       <Navbar />
+       {redirect && <p className='success'>Successfully Book Show</p>}
       <div className="Login v-flex">
         <form className="form_container" onSubmit={handleSubmit}>
           <h1>Register</h1>
